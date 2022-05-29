@@ -6,6 +6,7 @@ export type CategoriesDocument = Categories & Document;
 
 @Schema({
   timestamps: true,
+  collection: 'categories',
   toJSON,
 })
 export class Categories {

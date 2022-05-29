@@ -1,7 +1,11 @@
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { FilterQuery, Model } from 'mongoose';
-import { Categories, CategoriesDocument } from './categories.schema';
+import {
+  Categories,
+  CategoriesDocument,
+  CategoriesSchema,
+} from './categories.schema';
 import { UpdateCategoryDto } from './dto/update-category.dto';
 import { CreateCategoryDto } from './dto/create-category.dto';
 
@@ -16,10 +20,16 @@ export class CategoriesService {
     return this.categoriesModel.create(createDto);
   }
 
-  findAll(query: { parent?: string }) {
+  findDiscount(id: string) {
     const filter: FilterQuery<Categories> = {};
-    if (query.parent) filter.parent = query.parent;
-    return this.categoriesModel.find(filter);
+    return this.categoriesModel.aggregate().match({ _id: id }).graphLookup({
+      from: 'categories',
+      startWith: '$parent',
+      connectFromField: 'parent',
+      connectToField: '_id',
+      as: 'parents',
+      depthField: 'level',
+    });
   }
 
   findOne(id: string, filter?: { parent?: string }) {
