@@ -1,6 +1,6 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { Document, ObjectId, Schema as MongooseSchema } from 'mongoose';
-import { toJSON } from '../common/lib/schema';
+import { toJSON } from '../../common/lib/schema';
 
 export type CategoriesDocument = Categories & Document;
 
