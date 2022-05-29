@@ -1,0 +1,58 @@
+[{
+  "_id": {
+    "$oid": "6293231e504e4c60d69b0ef1"
+  },
+  "discount": 10,
+  "name": "cate#1",
+  "createdAt": {
+    "$date": "2022-05-29T07:39:10.717Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T07:39:10.717Z"
+  }
+},{
+  "_id": {
+    "$oid": "62932369504e4c60d69b0ef3"
+  },
+  "discount": 12,
+  "name": "cate#2",
+  "parent": {
+    "$oid": "6293231e504e4c60d69b0ef1"
+  },
+  "createdAt": {
+    "$date": "2022-05-29T07:40:25.869Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T07:40:25.869Z"
+  }
+},{
+  "_id": {
+    "$oid": "62932376504e4c60d69b0ef5"
+  },
+  "discount": 0,
+  "name": "cate#3",
+  "parent": {
+    "$oid": "62932369504e4c60d69b0ef3"
+  },
+  "createdAt": {
+    "$date": "2022-05-29T07:40:38.092Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T07:40:38.092Z"
+  }
+},{
+  "_id": {
+    "$oid": "62932387504e4c60d69b0ef7"
+  },
+  "discount": 0,
+  "name": "cate#4",
+  "parent": {
+    "$oid": "62932376504e4c60d69b0ef5"
+  },
+  "createdAt": {
+    "$date": "2022-05-29T07:40:55.232Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T07:40:55.232Z"
+  }
+}]

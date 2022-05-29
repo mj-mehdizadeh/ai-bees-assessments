@@ -1,0 +1,16 @@
+[{
+  "_id": {
+    "$oid": "62930625b5eae9a313333e65"
+  },
+  "status": "ACTIVE",
+  "role": "USER",
+  "totpSecret": "PBFA6CZ2P4WRGH25",
+  "hashedPassword": "$2b$10$AENX2JUMuV5CGKtRw61zEO16Y9cEKY23rs0YfDcJDuArKZMFZIfIC",
+  "email": "test@mail.com",
+  "createdAt": {
+    "$date": "2022-05-29T05:35:33.663Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T05:35:33.663Z"
+  }
+}]

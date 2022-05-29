@@ -1,0 +1,49 @@
+[{
+  "_id": {
+    "$oid": "629374241b70985c5fe52ff6"
+  },
+  "discount": 0,
+  "name": "product#1",
+  "categoryId": {
+    "$oid": "62932387504e4c60d69b0ef7"
+  },
+  "productId": 1,
+  "createdAt": {
+    "$date": "2022-05-29T13:24:52.448Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T13:24:52.448Z"
+  }
+},{
+  "_id": {
+    "$oid": "629374381b70985c5fe52ff8"
+  },
+  "discount": 0,
+  "name": "product#2",
+  "categoryId": {
+    "$oid": "62932376504e4c60d69b0ef5"
+  },
+  "productId": 2,
+  "createdAt": {
+    "$date": "2022-05-29T13:25:12.647Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T13:25:12.647Z"
+  }
+},{
+  "_id": {
+    "$oid": "629374451b70985c5fe52ffa"
+  },
+  "discount": 0,
+  "name": "product#3",
+  "categoryId": {
+    "$oid": "62932369504e4c60d69b0ef3"
+  },
+  "productId": 3,
+  "createdAt": {
+    "$date": "2022-05-29T13:25:25.531Z"
+  },
+  "updatedAt": {
+    "$date": "2022-05-29T13:25:25.531Z"
+  }
+}]
