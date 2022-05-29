@@ -14,4 +14,8 @@ export class ProductsService {
   create(createProductDto: CreateProductDto) {
     return this.productsModel.create(createProductDto);
   }
+
+  findOne(productId) {
+    return this.productsModel.findOne({ productId });
+  }
 }

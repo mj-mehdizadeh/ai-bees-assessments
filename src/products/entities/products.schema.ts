@@ -14,7 +14,7 @@ export class Products {
   productId: number;
 
   @Prop({ type: MongooseSchema.Types.ObjectId })
-  categoryId: ObjectId;
+  categoryId: ObjectId & string;
 
   @Prop()
   name: string;
