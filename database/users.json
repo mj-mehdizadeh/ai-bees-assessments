@@ -1,16 +1,15 @@
 [{
   "_id": {
-    "$oid": "62930625b5eae9a313333e65"
+    "$oid": "62939d99aa02d354313d22e1"
   },
   "status": "ACTIVE",
   "role": "USER",
-  "totpSecret": "PBFA6CZ2P4WRGH25",
-  "hashedPassword": "$2b$10$AENX2JUMuV5CGKtRw61zEO16Y9cEKY23rs0YfDcJDuArKZMFZIfIC",
+  "hashedPassword": "$2b$10$kUNvA2XbltAlTBS8DDSNP.EoE6lyOt2O9b8nlMwlkJDmEGmCGiVx6",
   "email": "test@mail.com",
   "createdAt": {
-    "$date": "2022-05-29T05:35:33.663Z"
+    "$date": "2022-05-29T16:21:45.476Z"
   },
   "updatedAt": {
-    "$date": "2022-05-29T05:35:33.663Z"
+    "$date": "2022-05-29T16:21:45.476Z"
   }
 }]
