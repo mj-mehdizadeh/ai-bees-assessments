@@ -31,6 +31,7 @@ export class CategoriesService {
         connectToField: '_id',
         as: 'parents',
         depthField: 'level',
+        maxDepth: 2,
       })
       .then((items) => items.pop());
   }
