@@ -2,7 +2,6 @@ import { Module } from '@nestjs/common';
 import { MongoModule } from './mongo/mongo.module';
 import { ConfigModule } from '@nestjs/config/dist/config.module';
 import validationSchema from './config.validation.schema';
-import { MailModule } from './mail/mail.module';
 
 @Module({
   imports: [
@@ -10,8 +9,7 @@ import { MailModule } from './mail/mail.module';
       validationSchema,
     }),
     MongoModule,
-    MailModule,
   ],
-  exports: [ConfigModule, MailModule],
+  exports: [ConfigModule],
 })
 export class BootstrapModule {}

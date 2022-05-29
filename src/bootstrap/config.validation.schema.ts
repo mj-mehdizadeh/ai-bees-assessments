@@ -11,9 +11,4 @@ export default Joi.object({
     .regex(/^mongodb/),
   JWT_SECRET: Joi.string().required(),
   JWT_TTL: Joi.number().default(9000),
-  MAIL_HOST: Joi.string().required(),
-  MAIL_PORT: Joi.number().required(),
-  MAIL_USERNAME: Joi.string(),
-  MAIL_PASSWORD: Joi.string(),
-  MAIL_FROM_ADDRESS: Joi.string().email().required(),
 });

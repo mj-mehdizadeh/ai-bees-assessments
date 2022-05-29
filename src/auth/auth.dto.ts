@@ -14,20 +14,11 @@ export class RegisterDto {
   password: string;
 }
 
-export class SendCodeDto {
-  @ApiProperty({ example: 'test@mail.com' })
-  email: string;
-  @ApiProperty()
-  password: string;
-}
-
 export class LoginDto {
   @ApiProperty({ example: 'test@mail.com' })
   email: string;
   @ApiProperty()
   password: string;
-  @ApiProperty()
-  totp: string;
 }
 
 export class LoginResponseDto {

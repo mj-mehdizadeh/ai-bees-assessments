@@ -16,9 +16,6 @@ export class Users {
   @Prop()
   hashedPassword: string;
 
-  @Prop({ required: true })
-  totpSecret: string;
-
   @Prop({ required: true, enum: UsersRole, default: UsersRole.USER })
   role: UsersRole;
 

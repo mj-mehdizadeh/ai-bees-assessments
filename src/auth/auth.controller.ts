@@ -8,22 +8,13 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { ApiResponse, ApiTags } from '@nestjs/swagger';
-import { loginBodyJoi, registerBodyJoi, sendCodeBodyJoi } from './auth.joi';
-import {
-  LoginDto,
-  LoginResponseDto,
-  RegisterDto,
-  SendCodeDto,
-} from './auth.dto';
-import { MailService } from '../bootstrap/mail/mail.service';
+import { loginBodyJoi, registerBodyJoi } from './auth.joi';
+import { LoginDto, LoginResponseDto, RegisterDto } from './auth.dto';
 
 @ApiTags('auth')
 @Controller('auth')
 export class AuthController {
-  constructor(
-    private authService: AuthService,
-    private mailService: MailService,
-  ) {}
+  constructor(private authService: AuthService) {}
 
   @Post('/register')
   @UsePipes(registerBodyJoi)
@@ -41,22 +32,6 @@ export class AuthController {
     }
   }
 
-  @Post('/code')
-  @UsePipes(sendCodeBodyJoi)
-  @ApiResponse({ status: 401, description: 'your account is blocked' })
-  @ApiResponse({ status: 201 })
-  async sendCode(@Body() sendCodeDto: SendCodeDto) {
-    const user = await this.authService.validateUser(
-      sendCodeDto.email,
-      sendCodeDto.password,
-    );
-    if (!user) {
-      throw new UnauthorizedException('Invalid username or password');
-    }
-    const otpToken = await this.authService.totpToken(user);
-    this.mailService.sendOtpCode(sendCodeDto.email, otpToken);
-  }
-
   @Post('/login')
   @UsePipes(loginBodyJoi)
   @ApiResponse({ status: 401, description: 'Invalid username or password' })
@@ -68,9 +43,6 @@ export class AuthController {
     );
     if (!user) {
       throw new UnauthorizedException('Invalid username or password');
-    }
-    if (!this.authService.verifyTotp(user, loginDto.totp)) {
-      throw new UnauthorizedException('Invalid TOTP token');
     }
     return this.authService.login(user);
   }

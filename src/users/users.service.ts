@@ -9,11 +9,10 @@ export class UsersService {
     @InjectModel(Users.name) private usersModel: Model<UsersDocument>,
   ) {}
 
-  create(email: string, hashedPassword: string, totpSecret: string) {
+  create(email: string, hashedPassword: string) {
     return this.usersModel.create({
       email,
       hashedPassword,
-      totpSecret,
     });
   }
 

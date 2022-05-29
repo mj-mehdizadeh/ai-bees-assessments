@@ -1,6 +1,5 @@
 import { Injectable } from '@nestjs/common';
 import { UsersService } from '../users/users.service';
-import { TotpService } from './totp/totp.service';
 import { JwtService } from '@nestjs/jwt';
 import { UsersDocument } from '../users/users.schema';
 import { UsersStatus } from '../users/users.type';
@@ -13,7 +12,6 @@ const bcrypt = require('bcrypt');
 export class AuthService {
   constructor(
     private usersService: UsersService,
-    private totpService: TotpService,
     private jwtService: JwtService,
     private configService: ConfigService,
   ) {}
@@ -21,8 +19,7 @@ export class AuthService {
   async registerUser(email: string, password: string) {
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(password, salt);
-    const totpSecret = await this.totpService.generateSecret();
-    return this.usersService.create(email, hashedPassword, totpSecret);
+    return this.usersService.create(email, hashedPassword);
   }
 
   async validateUser(email: string, password: string): Promise<any> {
@@ -35,14 +32,6 @@ export class AuthService {
       return user;
     }
     return null;
-  }
-
-  totpToken(user: UsersDocument) {
-    return this.totpService.generate(user.totpSecret);
-  }
-
-  verifyTotp(user: UsersDocument, token: string) {
-    return this.totpService.verify(user.totpSecret, token);
   }
 
   async login(user: UsersDocument) {
