@@ -10,8 +10,8 @@ export type CategoriesDocument = Categories & Document;
   toJSON,
 })
 export class Categories {
-  @Prop({ type: MongooseSchema.Types.ObjectId })
-  parent: ObjectId;
+  @Prop({ type: MongooseSchema.Types.ObjectId, index: true })
+  parentId: ObjectId;
 
   @Prop()
   name: string;

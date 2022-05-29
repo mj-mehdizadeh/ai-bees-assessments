@@ -26,17 +26,13 @@ export class CategoriesService {
       .match({ _id: id })
       .graphLookup({
         from: 'categories',
-        startWith: '$parent',
-        connectFromField: 'parent',
+        startWith: '$parentId',
+        connectFromField: 'parentId',
         connectToField: '_id',
         as: 'parents',
         depthField: 'level',
       })
       .then((items) => items.pop());
-  }
-
-  findOne(id: string, filter?: { parent?: string }) {
-    return this.categoriesModel.findOne({ _id: id, ...filter });
   }
 
   update(id: string, updateDto: UpdateCategoryDto) {
