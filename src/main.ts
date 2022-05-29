@@ -8,7 +8,15 @@ async function bootstrap() {
 
   const configService = app.get(ConfigService);
   setupSwagger(app);
-  await app.listen(configService.get('PORT'));
+
+  const port = configService.get('PORT');
+  await app.listen(port);
+
+  console.info('----------------------------------------------------');
+  console.info(`| Application is running on: http://localhost:${port} |`);
+  console.info(`| Swagger URL:       http://localhost:${port}/doc     |`);
+  console.info('----------------------------------------------------');
+
   console.info(`Application is running on ${await app.getUrl()}`);
 }
 
